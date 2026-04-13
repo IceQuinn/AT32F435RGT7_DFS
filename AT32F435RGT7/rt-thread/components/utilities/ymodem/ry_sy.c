@@ -37,8 +37,12 @@ static enum rym_code _rym_recv_begin(
 {
     struct custom_ctx *cctx = (struct custom_ctx *)ctx;
 
-    cctx->fpath[0] = '/';
-    rt_strncpy(&(cctx->fpath[1]), (const char *)buf, len - 1);
+//    cctx->fpath[0] = '/';
+    getcwd(cctx->fpath, sizeof(cctx->fpath));
+    if(1 != strlen(cctx->fpath))
+        cctx->fpath[strlen(cctx->fpath)] = '/';
+    rt_strncpy(&(cctx->fpath[strlen(cctx->fpath)]), (const char *)buf, len - 1);
+
     cctx->fd = open(cctx->fpath, O_CREAT | O_WRONLY | O_TRUNC, 0);
     if (cctx->fd < 0)
     {

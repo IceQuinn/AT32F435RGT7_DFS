@@ -19,6 +19,9 @@
 
 #include <dfs_posix.h> /* 当需要使用文件操作时，需要包含这个头文件 */
 
+#include "ctu_cfg.h"
+
+
 
 int main(void)
 {
@@ -77,8 +80,13 @@ int main(void)
         LOG_I("do dfs_mount() success");
     }
 
+
+    ctu_cfg_init();
+
+
+
 //    int fd;
-//    fd = open("/param.cfg", O_CREAT | O_RDWR, 0);
+//    fd = open("/cfg/param.cfg", O_CREAT | O_RDWR, 0);
 //    if (fd >= 0)
 //    {
 //        rt_kprintf("write init\n");
@@ -87,10 +95,10 @@ int main(void)
 //    }
 //
 //    char buf[20] = {0};
-//    fd = open("param.cfg", O_CREAT | O_RDWR, 0);
+//    fd = open("/cfg/param.cfg", O_CREAT | O_RDWR, 0);
 //    if (fd >= 0){
 //        read(fd, buf, 5);
-//        rt_kprintf("param.cfg = %s\n", buf);
+//        rt_kprintf("/cfg/param.cfg = %s\n", buf);
 //    }
 //
 //    close(fd);
