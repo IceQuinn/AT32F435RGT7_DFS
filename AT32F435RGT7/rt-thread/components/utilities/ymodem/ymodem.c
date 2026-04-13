@@ -534,6 +534,13 @@ static rt_err_t _rym_do_send_fin(struct rym_ctx *ctx)
 
     ctx->stage = RYM_STAGE_FINISHED;
 
+    getc_ack = _rym_getchar(ctx);
+
+    if (getc_ack != RYM_CODE_ACK)
+    {
+        return -RYM_ERR_ACK;
+    }
+
     return RT_EOK;
 }
 

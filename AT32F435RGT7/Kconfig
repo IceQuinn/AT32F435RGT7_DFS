@@ -18,7 +18,7 @@ config PKGS_DIR
 config PLATFORM_DIR
     string
     option env="PLATFORM_DIR"
-    default "D:/APP/RT-ThreadStudio/workspace/AT32F435RGT7/platform"
+    default "D:/UserData/Porject/github/AT32F435RGT7_DFS/AT32F435RGT7/platform"
 
 source "$RTT_DIR/Kconfig"
 source "$PKGS_DIR/Kconfig"
