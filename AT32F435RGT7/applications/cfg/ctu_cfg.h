@@ -41,6 +41,6 @@ struct CTU_CFG_Str
 };
 
 
-void ctu_cfg_init(void);
+int ctu_cfg_init(void);
 
 #endif /* APPLICATIONS_CFG_CTU_CFG_H_ */
